@@ -88,19 +88,19 @@ export default function AdminDashboard() {
           // ✅ DOCTORS
           const doctorsRes =
             await API.get(
-              "/doctors"
+              "api/doctors"
             );
 
           // ✅ BOOKINGS
           const bookingsRes =
             await API.get(
-              "/bookings"
+              "api/bookings"
             );
 
           // ✅ PRESCRIPTIONS
           const prescriptionRes =
             await API.get(
-              "/prescriptions"
+              "api/prescriptions"
             );
 
           const bookings =

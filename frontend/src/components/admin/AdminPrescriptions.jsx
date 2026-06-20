@@ -17,7 +17,7 @@ export default function AdminPrescriptions() {
 
   useEffect(() => {
 
-    API.get("/prescriptions")
+    API.get("api/prescriptions")
       .then((res) => {
 
         setPrescriptions(

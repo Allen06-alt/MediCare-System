@@ -3,22 +3,17 @@ import {
 } from "react-router-dom";
 
 export default function DoctorAppointments({
-
   appointments = [],
-
 }) {
 
   const navigate =
     useNavigate();
 
   return (
-
     <div className="bg-white rounded-3xl shadow p-8">
 
       <h1 className="text-3xl font-bold mb-8">
-
         All Appointments
-
       </h1>
 
       {appointments.length === 0 ? (
@@ -39,27 +34,19 @@ export default function DoctorAppointments({
               <div>
 
                 <h2 className="text-xl font-bold">
-
                   {a.patientName}
-
                 </h2>
 
                 <p className="text-gray-500">
-
                   {a.department}
-
                 </p>
 
                 <p className="mt-2">
-
                   <b>Date:</b> {a.date}
-
                 </p>
 
                 <p>
-
                   <b>Slot:</b> {a.slot}
-
                 </p>
 
               </div>
@@ -72,9 +59,7 @@ export default function DoctorAppointments({
                 }
                 className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl"
               >
-
                 Open Prescription
-
               </button>
 
             </div>

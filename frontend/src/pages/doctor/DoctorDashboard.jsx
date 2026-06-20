@@ -6,80 +6,50 @@ import {
   useContext,
 } from "react";
 
-import API
-from "../../api/api";
+import API from "../../api/api";
 
 import {
   AuthContext,
 } from "../../context/AuthContext";
 
 // 🔥 COMPONENTS
-import DoctorSidebar
-from "../../components/doctor/DoctorSidebar";
-
-import DoctorOverview
-from "../../components/doctor/DoctorOverview";
-
-import DoctorAppointments
-from "../../components/doctor/DoctorAppointments";
-
-import DoctorPatients
-from "../../components/doctor/DoctorPatients";
-
-import DoctorPrescriptions
-from "../../components/doctor/DoctorPrescriptions";
-
-import DoctorSchedule
-from "../../components/doctor/DoctorSchedule";
-
-import DoctorSettings
-from "../../components/doctor/DoctorSettings";
+import DoctorSidebar from "../../components/doctor/DoctorSidebar";
+import DoctorOverview from "../../components/doctor/DoctorOverview";
+import DoctorAppointments from "../../components/doctor/DoctorAppointments";
+import DoctorPatients from "../../components/doctor/DoctorPatients";
+import DoctorPrescriptions from "../../components/doctor/DoctorPrescriptions";
+import DoctorSchedule from "../../components/doctor/DoctorSchedule";
+import DoctorSettings from "../../components/doctor/DoctorSettings";
 
 export default function DoctorDashboard() {
 
-  // 🔥 ACTIVE TAB
-  const [tab,
-    setTab] =
-      useState("overview");
+  const [tab, setTab] = useState("overview");
 
-  // 🔥 APPOINTMENTS
-  const [appointments,
-    setAppointments] =
-      useState([]);
+  const [appointments, setAppointments] = useState([]);
 
-  // 🔥 AUTH
-  const { user } =
-    useContext(
-      AuthContext
-    );
+  const { user } = useContext(AuthContext);
 
   // 🔥 FETCH APPOINTMENTS
-  const fetchAppointments =
-    async () => {
+  const fetchAppointments = async () => {
+    try {
 
-      try {
+      const res = await API.get(
+        `/api/bookings/doctor/${user?.email}`
+      );
 
-        const res =
-          await API.get(
+      setAppointments(
+        res.data || []
+      );
 
-            `/bookings/doctor/${user?.email}`
-          );
-
-        setAppointments(
-          res.data || []
-        );
-
-      } catch (err) {
-
-        console.log(err);
-      }
-    };
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   // 🔥 LOAD
   useEffect(() => {
 
     if (user?.email) {
-
       fetchAppointments();
     }
 
@@ -90,98 +60,60 @@ export default function DoctorDashboard() {
 
     switch (tab) {
 
-      // ✅ OVERVIEW
       case "overview":
-
         return (
-
           <DoctorOverview
-            appointments={
-              appointments
-            }
+            appointments={appointments}
           />
         );
 
-      // ✅ APPOINTMENTS
       case "appointments":
-
         return (
-
           <DoctorAppointments
-            appointments={
-              appointments
-            }
+            appointments={appointments}
           />
         );
 
-      // ✅ PATIENTS
       case "patients":
-
         return (
-
           <DoctorPatients
-            appointments={
-              appointments
-            }
+            appointments={appointments}
           />
         );
 
-      // ✅ PRESCRIPTIONS
       case "prescriptions":
-
         return (
-
           <DoctorPrescriptions
-            appointments={
-              appointments
-            }
+            appointments={appointments}
           />
         );
 
-      // ✅ SCHEDULE
       case "schedule":
-
         return (
-
           <DoctorSchedule
-            appointments={
-              appointments
-            }
+            appointments={appointments}
           />
         );
 
-      // ✅ SETTINGS
       case "settings":
+        return <DoctorSettings />;
 
-        return (
-          <DoctorSettings />
-        );
-
-      // ✅ DEFAULT
       default:
-
         return (
-
           <DoctorOverview
-            appointments={
-              appointments
-            }
+            appointments={appointments}
           />
         );
     }
   };
 
   return (
-
     <div className="flex min-h-screen bg-gray-100">
 
       {/* 🔥 SIDEBAR */}
       <DoctorSidebar
-
         tab={tab}
-
         setTab={setTab}
-
       />
 
       {/* 🔥 MAIN */}
@@ -190,38 +122,23 @@ export default function DoctorDashboard() {
         {/* 🔥 TOP CARD */}
         <div className="bg-white rounded-3xl shadow p-8 mb-8 flex justify-between items-center flex-wrap gap-5">
 
-          {/* LEFT */}
           <div>
-
             <h1 className="text-4xl font-bold">
-
-              Welcome Dr.
-              {" "}
-              {user?.name}
-
+              Welcome Dr. {user?.name}
             </h1>
 
             <p className="text-gray-500 mt-3 text-lg">
-
               Manage appointments,
               prescriptions and patients
-
             </p>
-
           </div>
 
-          {/* RIGHT */}
           <div className="bg-blue-100 text-blue-700 px-6 py-4 rounded-2xl font-bold text-lg">
-
-            {appointments.length}
-            {" "}
-            Total Appointments
-
+            {appointments.length} Total Appointments
           </div>
 
         </div>
 
-        {/* 🔥 PAGE CONTENT */}
         {renderContent()}
 
       </div>

@@ -56,7 +56,7 @@ export default function AdminDoctors() {
 
         const res =
           await API.get(
-            "/doctors"
+            "api/doctors"
           );
 
         setDoctors(
@@ -139,7 +139,7 @@ export default function AdminDoctors() {
 
         const res =
           await API.post(
-            "/doctors",
+            "api/doctors",
             {
               ...form,
 
@@ -175,7 +175,7 @@ export default function AdminDoctors() {
       try {
 
         await API.delete(
-          `/doctors/${id}`
+          `api/doctors/${id}`
         );
 
         setDoctors(

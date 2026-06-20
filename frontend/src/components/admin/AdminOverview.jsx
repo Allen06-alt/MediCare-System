@@ -34,7 +34,7 @@ export default function AdminOverview() {
       // ✅ GET BOOKINGS
       const bookingsRes =
         await API.get(
-          "/bookings/admin/all"
+          "api/bookings/admin/all"
         );
 
       setAppointments(
@@ -44,7 +44,7 @@ export default function AdminOverview() {
       // ✅ GET DOCTORS
       const doctorsRes =
         await API.get(
-          "/doctors"
+          "api/doctors"
         );
 
       setDoctors(
