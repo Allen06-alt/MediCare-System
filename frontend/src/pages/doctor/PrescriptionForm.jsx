@@ -63,7 +63,7 @@ export default function PrescriptionForm() {
 
           const res =
             await API.get(
-              `/bookings/single/${id}`
+              `api/bookings/single/${id}`
             );
 
           setAppointment(
@@ -103,7 +103,7 @@ export default function PrescriptionForm() {
         // ✅ SAVE PRESCRIPTION
         await API.post(
 
-          "/prescriptions",
+          "api/prescriptions",
 
           {
             bookingId:
@@ -133,7 +133,7 @@ export default function PrescriptionForm() {
         // ✅ UPDATE BOOKING
         await API.put(
 
-          `/bookings/${id}/prescription`,
+          `api/bookings/${id}/prescription`,
 
           {
             medicines,
