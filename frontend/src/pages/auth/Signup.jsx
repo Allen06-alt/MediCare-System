@@ -48,7 +48,7 @@ export default function Signup() {
     }
 
     try {
-      await API.post("/auth/register", form);
+      await API.post("/api/auth/register", form);
 
       alert("Signup Successful ✅");
 
