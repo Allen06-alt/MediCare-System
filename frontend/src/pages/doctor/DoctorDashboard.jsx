@@ -62,7 +62,7 @@ export default function DoctorDashboard() {
         const res =
           await API.get(
 
-            `/bookings/doctor/${user?.email}`
+            `"/api/bookings/doctor/${user?.email}`
           );
 
         setAppointments(

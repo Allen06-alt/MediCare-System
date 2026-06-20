@@ -16,7 +16,7 @@ export default function BookingSummary() {
       const fakePaymentId = "pay_" + Date.now();
 
       // ✅ SAVE BOOKING
-      await API.post("/api/bookings", {
+      await API.post("/api"/api/bookings", {
         userEmail: user.email,
 
         patientName: booking.name,

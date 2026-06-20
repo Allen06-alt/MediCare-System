@@ -2,7 +2,7 @@
 const fetchAppointments = () => {
   if (!user?.email) return;
 
-  API.get(`/api/bookings/${user.email}`)
+  API.get(`/api"/api/bookings/${user.email}`)
     .then((res) => {
       console.log("Appointments:", res.data);
       setAppointments(

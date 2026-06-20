@@ -39,7 +39,7 @@ export default function StepSlot() {
     if (!booking?.date) return;
 
     API.get(
-      `/bookings/slots/${booking.doctor.email}/${booking.date}`
+      `"/api/bookings/slots/${booking.doctor.email}/${booking.date}`
     )
       .then((res) => {
 

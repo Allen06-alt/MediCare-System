@@ -68,7 +68,7 @@ app.use(
 
 // ✅ BOOKINGS
 app.use(
-  "/api/bookings",
+  "/api"/api/bookings",
   bookingRoutes
 );
 
