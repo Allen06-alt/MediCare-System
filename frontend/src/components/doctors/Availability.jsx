@@ -61,7 +61,7 @@ export default function Availability({
     if (!doctor?.email) return;
 
     API.get(
-      `"/api/bookings/slots/${doctor.email}/${selectedDate}`
+      `/bookings/slots/${doctor.email}/${selectedDate}`
     )
       .then((res) => {
 

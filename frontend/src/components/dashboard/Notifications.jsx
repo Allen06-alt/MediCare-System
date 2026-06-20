@@ -44,7 +44,7 @@ export default function Notifications() {
       return;
 
     API.get(
-      `"/api/bookings/${user.email}`
+      `/bookings/${user.email}`
     )
       .then((res) => {
 

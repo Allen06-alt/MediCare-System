@@ -94,7 +94,7 @@ export default function AdminDashboard() {
           // ✅ BOOKINGS
           const bookingsRes =
             await API.get(
-              ""/api/bookings"
+              "/bookings"
             );
 
           // ✅ PRESCRIPTIONS

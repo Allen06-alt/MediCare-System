@@ -34,7 +34,7 @@ export default function AdminOverview() {
       // ✅ GET BOOKINGS
       const bookingsRes =
         await API.get(
-          ""/api/bookings/admin/all"
+          "/bookings/admin/all"
         );
 
       setAppointments(

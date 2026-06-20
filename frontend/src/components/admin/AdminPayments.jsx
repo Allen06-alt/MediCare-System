@@ -24,7 +24,7 @@ export default function AdminPayments() {
     try {
 
       const res =
-        await API.get(""/api/bookings/admin/all");
+        await API.get("/bookings/admin/all");
 
       console.log(res.data);
 

@@ -53,7 +53,7 @@ export default function AppointmentList({
 
         // 🔥 STATUS CANCEL
         await API.put(
-          `"/api/bookings/${id}/cancel`
+          `/bookings/${id}/cancel`
         );
 
         alert(
@@ -107,7 +107,7 @@ export default function AppointmentList({
       try {
 
         await API.put(
-          `"/api/bookings/${id}`,
+          `/bookings/${id}`,
           form
         );
 

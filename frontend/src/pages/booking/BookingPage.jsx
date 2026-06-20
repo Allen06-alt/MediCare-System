@@ -23,7 +23,7 @@ import StepSlot
 from "../../components/booking/StepSlot";
 
 import BookingSummary
-from "../../components/booking"/api/bookingsummary";
+from "../../components/booking/BookingSummary";
 
 import useBooking
 from "../../hooks/useBooking";

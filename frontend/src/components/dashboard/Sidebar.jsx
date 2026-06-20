@@ -45,7 +45,7 @@ export default function Sidebar({
         // ✅ GET USER BOOKINGS
         const res =
           await API.get(
-            `"/api/bookings/${user.email}`
+            `/bookings/${user.email}`
           );
 
         // ✅ ONLY PENDING
